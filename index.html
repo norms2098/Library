@@ -8,10 +8,38 @@
     <title>Virtual Library</title>
 </head>
 <body>
-    <h1>Your Virtual Library</h1>
-    <button class="addBook"> + Add Book</button>
-    <div class="books-container">
-        <div class="book"></div>
+    <div class="grid-container">
+        <div class="sidebar-container">
+            <form>
+                <div>
+                    <label for="book-title">Title:</label>
+                    <input type="text" id="book-title" placeholder="Title of book">
+                </div>
+                <div>
+                    <label for="book-author">Author:</label>
+                    <input type="text" id="book-author" placeholder="Author of book">
+                </div>
+                <div>
+                    <label for="book-pages">Number of pages:</label>
+                    <input type="number" id="book-pages" placeholder="Number of pages">
+                </div>
+                <div>
+                    <input type="checkbox" id="isRead" >
+                    <label for="isRead">Check the box if you have already finished reading the book.</label>
+                </div>
+            </form>
+        </div>
+        <div class="table-container">
+            <table>
+                <caption>Your Virtual Library!</caption>
+                <tr style="background-color: #8f9fab;">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+        </div>
     </div>
   <script src="script.js"></script>  
 </body>

@@ -1,0 +1,34 @@
+:root{
+    /*color palette*/
+    --yellow:#ffdc73;
+    --blue1:#8f9fab;
+    --blue2:#ceecff;
+    --brown1:#7c2618;
+    --brown2:#ce7646;
+}
+body{
+    background-color: var(--blue2);
+}
+
+/*everything sidebar related*/
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    background-color:brown
+}
+
+form div:not(:last-child){
+    display: flex;
+    flex-direction: column;
+}
+
+/*everything table related*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td{
+    border-bottom: 1px solid black;
+}
+
+
