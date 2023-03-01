@@ -20,11 +20,11 @@ console.log(bookOne.info);*/
 const grid = document.querySelector('.grid-container');
 const sidebarMinimizeBtn = document.querySelector('.material-symbols-outlined');
 
-<<<<<<< HEAD
+
 sidebarMinimizeBtn.addEventListener('click',() =>{
     grid.style.gridTemplateColumns="85vw 10vw"
 })
-=======
+
 const titleBook = document.getElementById('book-title');
 const authorBook = document.getElementById('book-author');
 const pagesBook = document.getElementById('book-pages');
@@ -74,4 +74,3 @@ checkBox.addEventListener('change',() => {
 })
 
 
->>>>>>> 018c3b5 (Finished add book function)
