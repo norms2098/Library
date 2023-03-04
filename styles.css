@@ -82,10 +82,12 @@ form button:hover{
 
 /*everything table related*/
 table{
-    width: 100%;
+    width: 75%;
     border-collapse: collapse;
+    margin: auto;
 }
 td{
+    text-align: center;
     border-bottom: 1px solid black;
 }
 
