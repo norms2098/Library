@@ -12,9 +12,11 @@ const tableOutput = document.getElementById('lib-table');
 
 let bookStatus="not Read";
 let myLibrary=[];
-let removeBtn = document.createElement("button");
+/*let removeBtn = document.createElement("button");
 removeBtn.innerHTML="Remove book"
-let addRemoveBtn = document.tableOutput.appendChild(removeBtn)
+let editReadStatBtn = document.createElement("button");
+editReadStatBtn.innerHTML="Edit Read Status"*/
+
 function Book(title, author,pages,readStatus){
     this.bookTitle = title;
     this.bookAuthor = author;
@@ -31,14 +33,50 @@ function addBooktoLibrary(){
 }
 
 function addBooktoTable(){
-    tableOutput.innerHTML += `<tr>
-    <td> ${myLibrary[myLibrary.length -  1 ].bookTitle} </td>
-    <td> ${myLibrary[myLibrary.length -  1 ].bookAuthor} </td>
-    <td> ${myLibrary[myLibrary.length -  1 ].bookPages} </td>
-    <td> ${myLibrary[myLibrary.length -  1 ].isBookRead} </td>
-    <td> ${addRemoveBtn}</td>
-    </tr>`
+    const newRow = document.createElement("tr");
+    for(let i=0;i<5;i++){
+        const cell = document.createElement("td");
+        var cellContent;
+        if(i==0){
+            cellContent = document.createTextNode(`${myLibrary[myLibrary.length -  1 ].bookTitle}`)
+            cell.appendChild(cellContent); 
+        }
+        if(i==1){
+            cellContent = document.createTextNode(`${myLibrary[myLibrary.length -  1 ].bookAuthor}`)
+            cell.appendChild(cellContent);
+        }
+        if(i==2){
+            cellContent = document.createTextNode(`${myLibrary[myLibrary.length -  1 ].bookPages}`)
+            cell.appendChild(cellContent);
+        }
+        if(i==3){
+    
+            const statbutton = document.createElement("button")
+            statbutton.innerHTML = myLibrary[myLibrary.length -  1 ].isBookRead;
+            statbutton.className = "changeStatus-btn";
+            cell.appendChild(statbutton);
+            statbutton.addEventListener('click',()=>{
+                if(statbutton.innerHTML==="Read"){
+                    statbutton.innerHTML = "Not Read"
+                }
+                else{
+                    statbutton.innerHTML = "Read";
+                }
+            })
+    
+        }
+        if(i==4){
+            const rembtn = document.createElement("button")
+            rembtn.innerHTML = "Remove Book";
+            rembtn.className = "removeBook-btn";
+            cell.appendChild(rembtn);
+        }
+        
+        newRow.appendChild(cell);
+    }
+    tableOutput.appendChild(newRow)
 }
+    
 
 sidebarMinimizeBtn.addEventListener('click',() =>{
     grid.style.gridTemplateColumns="85vw 10vw"
@@ -48,7 +86,7 @@ checkBox.addEventListener('change',() => {
         bookStatus="Read";
     }
     else{
-        bookStatus="not read";
+        bookStatus="Not Read";
     }
 })
 
@@ -57,6 +95,16 @@ bookForm.addEventListener('submit',(e) => {
     addBooktoLibrary();
     addBooktoTable();
     bookForm.reset(); 
+    bookStatus="Not Read";
 })
 
+function changeStatus(classname,status){
+    const changestat = document.querySelector(`.${classname}`)
+    if(status === "Read"){
+        changestat.innerHTML = "Not Read";
+    }
+    else{
+        changestat.innerHTML = "Read";
+    }
+}
 
